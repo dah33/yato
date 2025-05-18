@@ -55,9 +55,6 @@ yato = Yato(
     schema="transform",
 )
 
-# You restore the database from S3 before runnning dlt
-yato.restore()
-
 pipeline = dlt.pipeline(
     pipeline_name="get_my_data",
     destination="duckdb",
@@ -69,8 +66,6 @@ data = my_source()
 
 load_info = pipeline.run(data)
 
-# You backup the database after a successful dlt run
-yato.backup()
 yato.run()
 ```
 

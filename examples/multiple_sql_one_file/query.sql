@@ -1,6 +1,5 @@
-SET s3_access_key_id = '{{ ACCESS_KEY }}';
-SET s3_secret_access_key = '{{ SECRET_KEY }}';
-SET s3_endpoint = '{{ ENDPOINT }}';
+CREATE TEMPORARY TABLE my_numbers (number INTEGER);
 
-SELECT count()
-FROM read_parquet('s3://{{ BUCKET }}/file.parquet');
+INSERT INTO my_numbers VALUES (1), (2), (3);
+
+SELECT sum(number) FROM my_numbers;
